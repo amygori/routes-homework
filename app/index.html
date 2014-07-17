@@ -22,29 +22,31 @@
     <!-- endbuild -->
   </head>
   <body>
+    <h1>What's your Sun sign?</h1>
+        <div id="list-container">
+          <h2>Signs of the Zodiac</h2>
+          
+            <script type="text/template" id="list-template"> 
+                <ul>
+                <% for(var i=0; i<zodiac.length; i++) { %>
+                <% var singleSign = zodiac[i]; %>
+                <li><a href=""><img src="<%= singleSign.imgURL %>"><%= name %></a></li>
+                <% } %>
+                </ul>
+            </script>
+        </div>
+        <div id="detail-container">
+            <script type="text/template" id="detail-template">
+                <h2><%= name %></h2>
+                   <ul>
+                       <li><img src="<%= imgURL %>"></li>
+                       <li><%= element %></li>
+                       <li><%= dates %></li>
+                       <li><%= qualities %></li>
+                   </ul>
+            </script>
 
-    <div class="hero-unit">
-      <h1>'Allo, 'Allo!</h1>
-      <p>You now have</p>
-      <ul>
-        <li>HTML5 Boilerplate</li>
-        <li>Normalize CSS</li>
-
-        <li>Sass</li>
-
-
-        <li>Modernizr</li>
-
-
-        <li>Bourbon & Neat</li>
-
-
-        <li>UnderscoreJS</li>
-
-      </ul>
-      <p>Don't forget to update your readme file!!</p>
-    </div>
-
+    
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/dist/jquery.js"></script>
@@ -54,6 +56,7 @@
     <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
+        <script src="scripts/data.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
