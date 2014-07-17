@@ -28,7 +28,7 @@ var zodiac = new Zodiac();
 //first the list view
 ZodiacView = Backbone.View.extend({
 		//tagName: 'li',
-		model: Sign,
+		model: Signs,
 		render: function(){
 	        this.template = _.template($('#list-template').html());
 	        var rendered = this.template({zodiac: this.collection});
@@ -37,10 +37,11 @@ ZodiacView = Backbone.View.extend({
 		},
 		initialize: function() {
     	 this.collection.fetch();
+    	 $('#list-container').append(this.render().$el);
     	 return this;
  	    },
 		events: {
-			'click .image' : 'render',
+			//'click .image' : 'render',
 			
 		}
 });
@@ -55,9 +56,26 @@ SignView = Backbone.View.extend({
 	},
 	initialize: function(){
 		this.model.fetch();
+		$('#detail-container').append(this.render().$el);
 		return this;
 	}
 })
+
+//instantiate the views
+var signView = new SignView();
+var zodiacView = new ZodiacView();
+
+
+//render the views
+$(document).ready(function (){
+	
+	$("#todoSubmit").submit(function(e){
+		//console.log(tasks.toJSON());
+		return false; 
+	});
+});
+
+
 
 //set up the routes
 (function(){
