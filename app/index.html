@@ -22,7 +22,9 @@
     <!-- endbuild -->
   </head>
   <body>
-    <h1>What's your Sun sign?</h1>
+    <header>
+        <h1>What's your Sun sign?</h1>
+    </header>
         <div id="list-container">
           <h2>Signs of the Zodiac</h2>
           
@@ -30,7 +32,7 @@
                 <ul>
                 <% for(var i=0; i<zodiac.length; i++) { %>
                 <% var singleSign = zodiac[i]; %>
-                <li><a href=""><img src="<%= singleSign.imgURL %>"><%= name %></a></li>
+                <li><a href="" class="image"><img src="<%= singleSign.imgURL %>"><%= name %></a></li>
                 <% } %>
                 </ul>
             </script>

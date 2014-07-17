@@ -37,9 +37,10 @@ ZodiacView = Backbone.View.extend({
 		},
 		initialize: function() {
     	 this.collection.fetch();
+    	 return this;
  	    },
 		events: {
-			'click .edit' : 'edit',
+			'click .image' : 'render',
 			
 		}
 });
@@ -48,9 +49,13 @@ SignView = Backbone.View.extend({
 	model: Sign,
 	render: function(){
 		this.template = _.template($('#detail-template').html());
-	        var rendered = this.template({zodiac: this.collection});
+	        var rendered = this.template({zodiac: this.model});
 	        this.$el.html(rendered); 
 	        return this; 
+	},
+	initialize: function(){
+		this.model.fetch();
+		return this;
 	}
 })
 
